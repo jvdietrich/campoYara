@@ -95,7 +95,7 @@ STYLE = """
         }
         .background-image {
             display: block;
-            width: 80%;
+            width: 100%;
             height: auto;
         }
         .circle {
@@ -109,10 +109,10 @@ STYLE = """
         .circle-off { background-color: red; }
 
         /* Posições dos aspersores */
-        .circle1 { top: 10%; left: 15%; }
-        .circle2 { top: 10%; left: 40%; }
-        .circle3 { top: 10%; left: 65%; }
-        .circle4 { top: 10%; left: 90%; }
+        .circle1 { top: 5%; left: 5%; }
+        .circle2 { top: 5%; left: 35%; }
+        .circle3 { top: 5%; left: 65%; }
+        .circle4 { top: 5%; left: 95%; }
 
         .circle5 { top: 40%; left: 15%; }
         .circle6 { top: 40%; left: 40%; }
