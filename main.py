@@ -114,10 +114,10 @@ STYLE = """
         .circle3 { top: 5%; left: 63%; }
         .circle4 { top: 5%; left: 93%; }
 
-        .circle5 { top: 47%; left: 3%; }
-        .circle6 { top: 47%; left: 33%; }
-        .circle7 { top: 47%; left: 63%; }
-        .circle8 { top: 47%; left: 93%; }
+        .circle5 { top: 45%; left: 3%; }
+        .circle6 { top: 45%; left: 33%; }
+        .circle7 { top: 45%; left: 63%; }
+        .circle8 { top: 45%; left: 93%; }
 
         .circle9 { top: 90%; left: 3%; }
         .circle10 { top: 90%; left: 33%; }
