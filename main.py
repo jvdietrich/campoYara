@@ -114,15 +114,15 @@ STYLE = """
         .circle3 { top: 5%; left: 63%; }
         .circle4 { top: 5%; left: 93%; }
 
-        .circle5 { top: 40%; left: 15%; }
-        .circle6 { top: 40%; left: 40%; }
-        .circle7 { top: 40%; left: 65%; }
-        .circle8 { top: 40%; left: 90%; }
+        .circle5 { top: 50%; left: 3%; }
+        .circle6 { top: 50%; left: 33%; }
+        .circle7 { top: 50%; left: 63%; }
+        .circle8 { top: 50%; left: 93%; }
 
-        .circle9 { top: 70%; left: 15%; }
-        .circle10 { top: 70%; left: 40%; }
-        .circle11 { top: 70%; left: 65%; }
-        .circle12 { top: 70%; left: 90%; }
+        .circle9 { top: 95%; left: 3%; }
+        .circle10 { top: 95%; left: 33%; }
+        .circle11 { top: 95%; left: 63%; }
+        .circle12 { top: 95%; left: 93%; }
     </style>
 """
 
