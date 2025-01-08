@@ -105,14 +105,14 @@ STYLE = """
             border-radius: 50%;
             border: 2px solid black;
         }
-        .circle-on { background-color: green; }
-        .circle-off { background-color: red; }
+        .circle-on { background-color: red; }
+        .circle-off { background-color: lightblue; }
 
         /* Posições dos aspersores */
-        .circle1 { top: 5%; left: 5%; }
-        .circle2 { top: 5%; left: 35%; }
-        .circle3 { top: 5%; left: 65%; }
-        .circle4 { top: 5%; left: 95%; }
+        .circle1 { top: 5%; left: 0%; }
+        .circle2 { top: 5%; left: 30%; }
+        .circle3 { top: 5%; left: 60%; }
+        .circle4 { top: 5%; left: 90%; }
 
         .circle5 { top: 40%; left: 15%; }
         .circle6 { top: 40%; left: 40%; }
