@@ -109,10 +109,10 @@ STYLE = """
         .circle-off { background-color: lightblue; }
 
         /* Posições dos aspersores */
-        .circle1 { top: 5%; left: 0%; }
-        .circle2 { top: 5%; left: 30%; }
-        .circle3 { top: 5%; left: 60%; }
-        .circle4 { top: 5%; left: 90%; }
+        .circle1 { top: 5%; left: 3%; }
+        .circle2 { top: 5%; left: 33%; }
+        .circle3 { top: 5%; left: 63%; }
+        .circle4 { top: 5%; left: 93%; }
 
         .circle5 { top: 40%; left: 15%; }
         .circle6 { top: 40%; left: 40%; }
