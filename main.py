@@ -115,14 +115,14 @@ STYLE = """
         .circle4 { top: 5%; left: 90%; }
 
         .circle5 { top: 45%; left: 3%; }
-        .circle6 { top: 45%; left: 33%; }
-        .circle7 { top: 45%; left: 63%; }
-        .circle8 { top: 45%; left: 93%; }
+        .circle6 { top: 45%; left: 31%; }
+        .circle7 { top: 45%; left: 60%; }
+        .circle8 { top: 45%; left: 90%; }
 
         .circle9 { top: 87%; left: 3%; }
-        .circle10 { top: 87%; left: 33%; }
-        .circle11 { top: 87%; left: 63%; }
-        .circle12 { top: 87%; left: 93%; }
+        .circle10 { top: 87%; left: 31%; }
+        .circle11 { top: 87%; left: 60%; }
+        .circle12 { top: 87%; left: 90%; }
     </style>
 """
 
