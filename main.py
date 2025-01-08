@@ -95,7 +95,7 @@ STYLE = """
         }
         .background-image {
             display: block;
-            width: 100%;
+            width: 80%;
             height: auto;
         }
         .circle {
