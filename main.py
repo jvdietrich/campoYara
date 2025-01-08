@@ -139,7 +139,7 @@ st.subheader("Aspersores")
 
 # Dados dos aspersores
 aspersores_status = gerar_dados_aspersores()
-aspersores_status, nivel_reservatorio, estado_bomba = gerar_dados()
+nivel_reservatorio, estado_bomba = gerar_dados()
 
 # Inserindo o CSS no Streamlit
 st.markdown(STYLE, unsafe_allow_html=True)
