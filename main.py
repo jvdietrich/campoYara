@@ -112,7 +112,7 @@ STYLE = """
         .circle1 { top: 5%; left: 3%; }
         .circle2 { top: 5%; left: 31%; }
         .circle3 { top: 5%; left: 60%; }
-        .circle4 { top: 5%; left: 92%; }
+        .circle4 { top: 5%; left: 90%; }
 
         .circle5 { top: 45%; left: 3%; }
         .circle6 { top: 45%; left: 33%; }
