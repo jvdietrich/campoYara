@@ -79,10 +79,17 @@
 
 import streamlit as st
 import random
+import plotly.graph_objects as go
 
 # Função para gerar os dados dos aspersores
 def gerar_dados_aspersores():
     return [random.choice([0, 1]) for _ in range(12)]
+
+# Função para gerar os dados
+def gerar_dados():
+    nivel_reservatorio = random.uniform(0.3, 1.0)
+    estado_bomba = "LIGADA" if nivel_reservatorio < 0.7 else "DESLIGADA"
+    return nivel_reservatorio, estado_bomba
 
 # Estilo para o layout dos aspersores e imagem de fundo
 STYLE = """
@@ -132,6 +139,7 @@ st.subheader("Aspersores")
 
 # Dados dos aspersores
 aspersores_status = gerar_dados_aspersores()
+aspersores_status, nivel_reservatorio, estado_bomba = gerar_dados()
 
 # Inserindo o CSS no Streamlit
 st.markdown(STYLE, unsafe_allow_html=True)
@@ -154,3 +162,20 @@ html_content += "</div>"
 
 # Renderiza o HTML no Streamlit
 st.markdown(html_content, unsafe_allow_html=True)
+
+# Indicador do reservatório
+st.subheader("Nível do Reservatório")
+fig = go.Figure(go.Indicator(
+    mode="gauge+number",
+    value=nivel_reservatorio * 100,
+    gauge={'axis': {'range': [0, 100]}, 'bar': {'color': "blue"}},
+    title={'text': "Nível (%)"}
+))
+fig.update_layout(height=300)
+st.plotly_chart(fig)
+
+# Estado da bomba
+st.subheader("Estado da Bomba")
+estado_cor = "green" if estado_bomba == "LIGADA" else "red"
+st.markdown(f'<h3 style="color:{estado_cor}; text-align:center;">{estado_bomba}</h3>', unsafe_allow_html=True)
+
