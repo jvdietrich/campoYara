@@ -84,9 +84,18 @@ import random
 def gerar_dados_aspersores():
     return [random.choice([0, 1]) for _ in range(12)]
 
-# Estilo para o layout dos aspersores e imagem de fundo
+# CSS para ajustar margens e layout
 STYLE = """
     <style>
+        /* Remove o espaçamento no topo */
+        .css-18e3th9 {
+            padding-top: 0rem;
+        }
+        .css-1d391kg {
+            padding-top: 0rem;
+        }
+
+        /* Centralizar conteúdo e ajustar layout */
         .container {
             position: relative;
             width: 100%;
@@ -126,6 +135,9 @@ STYLE = """
     </style>
 """
 
+# Inserindo o CSS personalizado no Streamlit
+st.markdown(STYLE, unsafe_allow_html=True)
+
 # Layout do app
 st.title("Painel de Monitoramento")
 st.subheader("Aspersores")
@@ -133,11 +145,8 @@ st.subheader("Aspersores")
 # Dados dos aspersores
 aspersores_status = gerar_dados_aspersores()
 
-# Inserindo o CSS no Streamlit
-st.markdown(STYLE, unsafe_allow_html=True)
-
 # Caminho da imagem de fundo (use sua própria imagem ou URL)
-background_image_url = "https://izabeldietrich.com.br/wp-content/uploads/2024/12/campoH.png"  # Substitua pelo caminho da sua imagem
+background_image_url = "https://via.placeholder.com/600x400.png?text=Fundo+dos+Aspersores"  # Substitua pelo caminho da sua imagem
 
 # Criação do layout com a imagem de fundo e os círculos
 html_content = f"""
@@ -154,3 +163,4 @@ html_content += "</div>"
 
 # Renderiza o HTML no Streamlit
 st.markdown(html_content, unsafe_allow_html=True)
+
