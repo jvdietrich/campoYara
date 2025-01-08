@@ -1,60 +1,39 @@
-import streamlit as st
-import time
+from bokeh.layouts import column, row
+from bokeh.models import ColumnDataSource, Div
+from bokeh.plotting import curdoc, figure
+import random
 
-# Configuração da página
-st.set_page_config(page_title="Painel de Monitoramento", layout="wide")
+# Dados iniciais
+source = ColumnDataSource(data={'aspersores': [random.choice([0, 1]) for _ in range(12)]})
 
-# Título e cabeçalho
-st.title("Painel de Monitoramento")
-st.subheader("Status dos Aspersores e Reservatório")
+# Figura para aspersores
+plot = figure(title="Status dos Aspersores", x_range=(0, 4), y_range=(0, 3), tools="")
+plot.circle(
+    x=[i % 4 for i in range(12)], 
+    y=[i // 4 for i in range(12)],
+    size=40, color=['green' if s == 1 else 'red' for s in source.data['aspersores']]
+)
 
-# Simulação de dados iniciais
-aspersores_status = [1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1]  # 1 = ligado, 0 = desligado
-nivel_reservatorio = 0.75  # 75%
-estado_bomba = 1  # 1 = ligada, 0 = desligada
-
-# Atualização periódica
-def atualizar_dados():
-    # Simula dados atualizados
-    global aspersores_status, nivel_reservatorio, estado_bomba
-    aspersores_status = [1 if i % 2 == 0 else 0 for i in range(12)]
-    nivel_reservatorio = max(0.0, min(1.0, nivel_reservatorio + 0.1 * (-1 if estado_bomba else 1)))
-    estado_bomba = 1 if nivel_reservatorio < 0.8 else 0
-
-# Exibição dos aspersores
-st.subheader("Status dos Aspersores")
-cols = st.columns(4)  # Dividindo em 4 colunas
-for i, status in enumerate(aspersores_status):
-    with cols[i % 4]:
-        color = "green" if status == 1 else "red"
-        st.markdown(
-            f"<div style='width: 30px; height: 30px; border-radius: 50%; background-color: {color}; margin: auto;'></div>",
-            unsafe_allow_html=True,
-        )
-
-# Indicador do nível do reservatório
-st.subheader("Nível do Reservatório")
-st.progress(int(nivel_reservatorio * 100))
-st.write(f"Nível atual: {nivel_reservatorio * 100:.0f}%")
+# Indicador de nível
+nivel = Div(text="<h3>Nível do Reservatório: 75%</h3>", width=400)
 
 # Estado da bomba
-st.subheader("Estado da Bomba")
-estado_texto = "LIGADA" if estado_bomba == 1 else "DESLIGADA"
-estado_cor = "green" if estado_bomba == 1 else "red"
-st.markdown(
-    f"<span style='font-size: 1.5em; color: {estado_cor};'>{estado_texto}</span>",
-    unsafe_allow_html=True,
+estado_bomba = Div(text="<h3>Bomba: DESLIGADA</h3>", width=400, style={'color': 'red'})
+
+# Layout
+layout = column(
+    plot,
+    nivel,
+    estado_bomba
 )
 
-# Link para a tabela
-st.markdown(
-    "[Clique aqui para acessar a tabela com as últimas 48 horas](https://docs.google.com/spreadsheets/d/1kjLx7Cbj_EMQLHRCqgEEKKgUPZd9HS-DFruKavRNOvM)",
-    unsafe_allow_html=True,
-)
+curdoc().add_root(layout)
 
-# Atualização automática
-placeholder = st.empty()
-while True:
-    with placeholder.container():
-        atualizar_dados()
-        time.sleep(1)  # Atualiza os dados a cada segundo
+def atualizar():
+    # Atualiza dados
+    aspersores = [random.choice([0, 1]) for _ in range(12)]
+    source.data = {'aspersores': aspersores}
+    nivel.text = f"<h3>Nível do Reservatório: {random.randint(50, 100)}%</h3>"
+    estado_bomba.text = "<h3>Bomba: LIGADA</h3>" if random.choice([0, 1]) else "<h3>Bomba: DESLIGADA</h3>"
+
+curdoc().add_periodic_callback(atualizar, 1000)  # Atualiza a cada segundo
